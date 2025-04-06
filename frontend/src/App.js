@@ -13,6 +13,31 @@ function App() {
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
+  const handleSubmit = () => {
+    // Store the input values for later use
+    const formData = {
+      illness,
+      medications,
+      allergies,
+    };
+
+    console.log('Submitted Data:', formData);
+
+    // You can also send this data to a backend API if needed
+    // axios.post('http://localhost:5000/api/submit', formData)
+    //   .then(response => console.log('Data submitted successfully:', response))
+    //   .catch(error => console.error('Error submitting data:', error));
+    axios.post('http://localhost:5000/api/submit', formData)
+    .then(response => {
+      console.log('Data submitted successfully:', response.data);
+      alert('Data submitted successfully!');
+    })
+    .catch(error => {
+      console.error('Error submitting data:', error);
+      alert('Error submitting data. Please try again.');
+    });
+  };
+
   return (
     <div>
       <h1>React + Express REST API</h1>
@@ -49,6 +74,7 @@ function App() {
           />
         </label>
       </div>
+      <button onClick={handleSubmit}>Check Foods</button>
     </div>
   );
 }

@@ -1,9 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
-// Test API endpoint
-router.get('/hello', (req, res) => {
-    res.json({ message: 'Hello from the backend!' });
+router.post('/submit', (req, res) => {
+    const { illness, medications, allergies } = req.body;
+
+    console.log('Received Data:', { illness, medications, allergies });
+
+    // Process the data (e.g., save to a database or perform some logic)
+    // For now, just send a success response
+    res.status(200).json({ message: 'Data received successfully!' });
 });
 
 module.exports = router;
