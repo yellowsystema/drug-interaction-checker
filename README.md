@@ -14,7 +14,7 @@ Patients managing chronic illnesses, taking multiple medications, or dealing wit
 
 ## Technology Stack
 - **Frontend:** React.js
-- **Backend:** Express.js
+- **Backend:** Express Rest API
 - **AI API:** Gemini API for food recommendations based on health conditions and medications
 
 ## How It Works ⚒️
