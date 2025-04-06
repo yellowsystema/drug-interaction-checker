@@ -1,7 +1,7 @@
-# Medi-Dine
+# Medi-Dine 💊
 # Hackathon Project: Smart Grocery Guide for Patient Safety
 
-## Project Overview
+## Project Overview 🤔
 Our project aims to enhance patient safety and improve health outcomes by helping individuals make informed dietary choices. We developed a full-stack web application that analyzes a patient's current illness, medications, and food allergies to generate a personalized list of foods they should avoid. The app also provides brief explanations for why certain foods should be excluded based on the provided inputs.
 
 ## Problem Statement
@@ -17,7 +17,7 @@ Patients managing chronic illnesses, taking multiple medications, or dealing wit
 - **Backend:** Express.js
 - **AI API:** Gemini API for food recommendations based on health conditions and medications
 
-## How It Works
+## How It Works ⚒️
 1. The user enters their illness, medications, and food allergies.
 2. The backend processes this information and sends it to the Gemini API.
 3. The API returns a list of foods to avoid with explanations.
