@@ -1,9 +1,8 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  const [message, setMessage] = useState('');
   const [illness, setIllness] = useState('');
   const [medications, setMedications] = useState('');
   const [allergies, setAllergies] = useState('');
@@ -11,12 +10,6 @@ function App() {
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(false); // New loading state
   const [error, setError] = useState(''); // State to store error messages
-
-  useEffect(() => {
-    axios.get('http://localhost:5000/api/hello')
-      .then(response => setMessage(response.data.message))
-      .catch(error => console.error('Error fetching data:', error));
-  }, []);
 
   const handleSubmit = () => {
     // Validate inputs
