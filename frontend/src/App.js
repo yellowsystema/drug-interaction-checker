@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import './App.css';
 
 function App() {
   const [message, setMessage] = useState('');
@@ -55,63 +56,69 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>React + Express REST API</h1>
-      <p>Backend says: {message}</p>
+    <div className='background'>
+      <div className='background2'>
+        <h1 className='title'>MEDI-DINE</h1>
 
-      {!submitted ? (
-        <div>
-          <div>
-            <label>
-              Illness:
-              <input 
-                type="text" 
-                value={illness} 
-                onChange={(e) => setIllness(e.target.value)} 
-              />
-            </label>
+        {!submitted ? (
+          <div  className='form'>
+            <div>
+              <label className='form-label'>
+                Illness: 
+                <input 
+                  className='form-input'
+                  type="text" 
+                  value={illness} 
+                  onChange={(e) => setIllness(e.target.value)} 
+                />
+              </label>
+            </div>
+            <div>
+              <label className='form-label'>
+                Medications: 
+                <input 
+                  className='form-input'
+                  type="text" 
+                  value={medications} 
+                  onChange={(e) => setMedications(e.target.value)} 
+                />
+              </label>
+            </div>
+            <div>
+              <label className='form-label'>
+                Allergies: 
+                <input 
+                  className='form-input'
+                  type="text" 
+                  value={allergies} 
+                  onChange={(e) => setAllergies(e.target.value)} 
+                />
+              </label>
+            </div>
+            <div className='button-container'>
+              <button className='button' onClick={handleSubmit}>Search Foods to Avoid</button>
+              {error && <p style={{ fontSize: '12px', color: 'red' }}>{error}</p>} {/* Display error message */}
+            </div>
           </div>
+        ) : (
           <div>
-            <label>
-              Medications:
-              <input 
-                type="text" 
-                value={medications} 
-                onChange={(e) => setMedications(e.target.value)} 
-              />
-            </label>
+            <h2>Results</h2>
+            {loading ? (
+              <p>Loading results...</p> // Show loading message while waiting for the response
+            ) : results && results.recommendations ? (
+              Object.entries(results.recommendations).map(([food, reason], index) => (
+                <div key={index} style={{ border: '1px solid #ccc', padding: '10px', margin: '10px 0' }}>
+                  <h3>{food}</h3>
+                  <p>{reason}</p>
+                </div>
+              ))
+            ) : (
+              <p>No recommendations available.</p>
+            )}
+            <button onClick={handleGoBack}>Go Back</button>
           </div>
-          <div>
-            <label>
-              Allergies:
-              <input 
-                type="text" 
-                value={allergies} 
-                onChange={(e) => setAllergies(e.target.value)} 
-              />
-            </label>
-          </div>
-          {error && <p style={{ color: 'red' }}>{error}</p>} {/* Display error message */}
-          <button onClick={handleSubmit}>Check Foods</button>
-        </div>
-      ) : (
-        <div>
-          <h2>Results</h2>
-          {loading ? (
-            <p>Loading results...</p> // Show loading message while waiting for the response
-          ) : results && results.recommendations ? (
-            Object.entries(results.recommendations).map(([food, reason], index) => (
-              <div key={index} style={{ border: '1px solid #ccc', padding: '10px', margin: '10px 0' }}>
-                <h3>{food}</h3>
-                <p>{reason}</p>
-              </div>
-            ))
-          ) : (
-            <p>No recommendations available.</p>
-          )}
-          <button onClick={handleGoBack}>Go Back</button>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
