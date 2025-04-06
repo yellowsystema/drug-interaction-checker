@@ -1,1 +1,1 @@
-# drug-interaction-checker
+# Medi-Dine
