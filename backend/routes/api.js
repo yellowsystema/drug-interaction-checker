@@ -17,7 +17,7 @@ router.post('/submit', async (req, res) => {
       - Medications: ${medications}
       - Allergies: ${allergies}
 
-      Provide a list of foods to avoid, with a short explanation for each.
+      Provide a list of 4 foods to avoid, with a short explanation for each.
       Return the response as a plain JSON object (without Markdown formatting) where the keys are the food names and the values are the reasons to avoid them.  The JSON object should be valid and parsable.
     `;
 
