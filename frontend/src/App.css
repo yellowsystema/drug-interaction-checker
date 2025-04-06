@@ -59,11 +59,21 @@
   row-gap: 5px;
 }
 
-.title {
+h1 {
   align-self: center;
   color: #405d72;
   font-weight: 700;
   font-size: 30px;
+  margin: 10px;
+}
+
+.h2-container {
+  text-align: center;
+}
+
+h2 {
+  color: #405d72;
+  align-self: center;
 }
 
 .form {
@@ -110,4 +120,17 @@
 .button:hover {
   background-color: #bcf3f7;
   transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+.food-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #F7E7DC;
+  border: solid;
+  border-width: 2px;
+  border-color: #405d72;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px 0;
 }

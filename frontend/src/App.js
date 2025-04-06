@@ -100,22 +100,28 @@ function App() {
               {error && <p style={{ fontSize: '12px', color: 'red' }}>{error}</p>} {/* Display error message */}
             </div>
           </div>
+
         ) : (
           <div>
-            <h2>Results</h2>
+            <div className='h2-container'>
+              <h2>Top 4 Foods to <span style={{ color: '#b0200c', marginLeft: '2px'}}>AVOID</span></h2>
+            </div>
             {loading ? (
               <p>Loading results...</p> // Show loading message while waiting for the response
             ) : results && results.recommendations ? (
               Object.entries(results.recommendations).map(([food, reason], index) => (
-                <div key={index} style={{ border: '1px solid #ccc', padding: '10px', margin: '10px 0' }}>
-                  <h3>{food}</h3>
-                  <p>{reason}</p>
+                <div key={index} className='food-card'>
+                  <h3 style={{ color: '#b0200c', margin: '5px'}}>{food}</h3>
+                  <p style={{ color: '#405d72', fontSize: '12', margin: '5px'}}>{reason}</p>
                 </div>
               ))
             ) : (
               <p>No recommendations available.</p>
             )}
-            <button onClick={handleGoBack}>Go Back</button>
+            <div className='button-container'>
+              <button className='button' onClick={handleGoBack}>Go Back</button>
+            </div>
+            
           </div>
         )}
       </div>
