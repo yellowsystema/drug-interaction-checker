@@ -45,6 +45,7 @@
   flex-direction: column;
   background-color: #405d72;
   padding: 50px;
+  min-height: 800px;
 }
 
 .background2 {
